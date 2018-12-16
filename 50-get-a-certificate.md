@@ -102,6 +102,20 @@ every 60 days (or so), because all Let's Encrypt certificates expire every 90
 days! So, don't uninstall cert-manager if you start using this certificate to
 serve traffic.
 
+Alternate:
+Get the chart name with `helm list` and then uncomment `./gke/bigchaindb/certificates/dev-cert.yaml` and fill in the appropriate values.
+```bash
+kubectl apply -f dev-cert.yaml
+kubectl describe -f dev-cert.yaml
+```
+
+We know everything is working once the secret `bigchaindb-dev-tls` exists. Defined in `dev-cert.yaml`.
+```bash
+kubectl get secret bigchaindb-dev-tls
+```
+Following `./gke/bigchaindb/README.md` for more details on how to apply the TLS certificate afterwards.
+
+The GKE load balancer takes a few minutes to show changes.
 
 ### Troubleshooting
 
@@ -112,5 +126,3 @@ To see error logs or events about this process, run the following commands:
 - `kubectl describe certificate`: This should show the Certificate events.
 
 [cert-manager]: https://github.com/jetstack/cert-manager
-
-![Google Analytics](https://ga-beacon.appspot.com/UA-2609286-16/50-get-a-certificate?pixel)

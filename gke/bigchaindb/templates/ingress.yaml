@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: {{ template "bigchaindb.fullname" .}}-ingress
+  annotations:
+    kubernetes.io/ingress.global-static-ip-name: {{ template "bigchaindb.name" . }}-ip
+  labels:
+    app: {{ template "bigchaindb.name" . }}
+    chart: {{ template "bigchaindb.chart" . }}
+spec:
+  backend: 
+    serviceName: {{ template "bigchaindb.fullname" . }}-svc
+    servicePort: 9984
+{{- if .Values.ingress.tls }}
+  tls:
+  {{- range .Values.ingress.tls }}
+  - secretName: {{ .secretName }}
+    hosts:
+    {{- range .hosts }}
+    - {{ . }}
+    {{- end }}
+  {{- end }}
+{{- end }}

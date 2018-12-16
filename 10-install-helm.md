@@ -14,6 +14,9 @@ See the License for the specific language governing permissions and
 limitations under the License.
 -->
 
+**Note**: terraform files have been provided to spin up the cluster in `/gke`
+`--namespace MY_NAMESPACE` can be added to the helm and kubectl commands if one of the kubernetes environments is created to the GKE cluster.
+
 # Install Helm
 
 Install the Helm client on your development machine:
@@ -44,6 +47,3 @@ Once tiller pod becomes ready, update chart repositories:
 -----
 
 **Next:** [Install cert-manager &rarr;](20-install-cert-manager.md)
-
-
-![Google Analytics](https://ga-beacon.appspot.com/UA-2609286-16/10-install-helm?pixel)

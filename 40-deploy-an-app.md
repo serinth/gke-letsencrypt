@@ -77,5 +77,12 @@ Then apply this manifest:
 
 -----
 
+# Use Helm
+A sample bigchaindb node is provided in `/gke/bigchaindb` which uses statefulsets and ingress.
+Simply do:
 
-![Google Analytics](https://ga-beacon.appspot.com/UA-2609286-16/40-deploy-an-app?pixel)
+```bash
+helm install ./bigchaindb --namespace MYNAMESPACE
+helm list
+```
+

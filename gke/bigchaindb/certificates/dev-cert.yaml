@@ -1,0 +1,19 @@
+# apiVersion: certmanager.k8s.io/v1alpha1
+# kind: Certificate
+# metadata:
+#   name: bigchaindb-dev-tls
+#   namespace: dev
+# spec:
+#   secretName: bigchaindb-dev-tls
+#   issuerRef:
+#     name: letsencrypt-prod
+#     kind: ClusterIssuer
+#   commonName: 'MY-DOMAIN'
+#   dnsNames:
+#   - 'MY-DOMAIN'
+#   acme:
+#     config:
+#     - http01:
+#         ingress: GENERATED-INGRESS-NAME
+#       domains:
+#       - 'MY-DOMAIN'

@@ -33,6 +33,12 @@ your email address [in the manifest file][manifest]):
         sed -e "s/email: ''/email: $EMAIL/g" | \
         kubectl apply -f-
 
+Alternatively, install the cert issuer in the `gke/letsencrypt-issuer.yaml` after replacing **MY_EMAIL** with the appropriate value.
+
+```bash
+kubectl apply -f gke/letsencrypt-issuer.yaml --namespace ENV
+```
+
 You will see output:
 
     clusterissuer "letsencrypt-staging" created
@@ -53,7 +59,3 @@ For this tutorial, we'll dive straight into using the `letsencrypt-prod` issuer.
 -----
 
 **Next:** [Deploy a sample web app on a domain name &rarr;](40-deploy-an-app.md)
-
-
-
-![Google Analytics](https://ga-beacon.appspot.com/UA-2609286-16/30-setup-letsencrypt?pixel)
